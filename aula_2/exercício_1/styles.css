@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    width: 100vw;
+    background: url('./pride-rainbow.gif');
+    background-size: cover;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2 {
+    color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gifs {
+    display: flex;
+}
+
+.js {
+    margin-left: 40px;
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 10%;
+    background: url('./cat-cats.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: jsmoves 10s infinite ease-in-out;
+}
+.js1 {
+    margin-left: 10px;
+    margin-top: 5px;
+    height: 150px;
+    width: 150px;
+    border-radius: 10%;
+    background: url('./huh-cat.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: jsmoves 15s infinite ease-out;
+}
+.js2 {
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 550px;
+    width: 350px;
+    border-radius: 10%;
+    background: url('./cat-drift.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: jsmoves 20s infinite ease;
+}
+
+
+@keyframes jsmoves {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    10% {
+        transform: translateY(200px);
+        transform: translateX(200px);
+    }
+
+    20% {
+        transform: scale(20deg);
+        transform: translateY(300px);
+        transform: translateX(400px);
+    }
+
+    30% {
+        transform: translateY(222px);
+        transform: perspective(-20deg);
+    }
+
+    40% {
+        transform: scaleX(20deg);
+    }
+
+    50% {
+        transform: rotateZ(200px);
+        transform: translateX(200deg);
+        transform: rotateY(1000px);
+    }
+
+    100% {
+        transform: translateX(-80deg);
+        transform: rotateY(-90deg);
+    }
+
+}
+
+
+
+
+
+@keyframes spin-and-wobble {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    50% {
+      transform: translateX(50px) rotate(360deg) scale(0.8);
+    }
+    75% {
+      transform: translateX(-50px) rotate(-180deg) scale(1.5);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+  
+
+  @keyframes disco-stretch {
+    0% {
+      transform: scale(1) rotate(0deg) skewX(0deg);
+    }
+    33% {
+      transform: scale(1.5) rotate(45deg) skewX(10deg);
+    }
+    66% {
+      transform: scale(0.8) rotate(-90deg) skewX(-10deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg) skewX(0deg);
+    }
+  }
+  
+
+  @keyframes confetti-flight {
+    0% {
+      transform: translateX(0px) translateY(0px);
+    }
+    25% {
+      transform: translateX(100px) translateY(-50px) rotate(45deg);
+    }
+    50% {
+      transform: translateX(-100px) translateY(100px) rotate(-45deg)  scaleX(-1);
+    }
+    75% {
+      transform: translateX(50px) translateY(-75px) rotate(90deg);
+    }
+    100% {
+      transform: translateX(0px) translateY(0px);
+    }
+  }
+  
+
+  .genimi-animations {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .js6 {
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 550px;
+    width: 350px;
+    border-radius: 10%;
+    background: url('./drinking-funny.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: disco-stretch 8s infinite ease;
+}
+
+.js4 {
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 550px;
+    width: 350px;
+    border-radius: 10%;
+    background: url('./shocked-shocked-cat.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: spin-and-wobble 10s infinite ease-in-out;
+}
+
+.js5 {
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 550px;
+    width: 350px;
+    border-radius: 10%;
+    background: url('./zoning-out-cat-complete-blcak-cat.gif');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    animation: confetti-flight 12s infinite ease-out;
+}

@@ -1,0 +1,23 @@
+body, html {
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+}
+
+
+.a {
+    background-color: red;
+    flex: 1;
+
+}
+
+.b {
+    background-color: green;
+    flex: 1;
+
+}
+
+.c {
+    background-color: blue;
+    flex: 1;
+}
