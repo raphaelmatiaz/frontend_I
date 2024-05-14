@@ -1,0 +1,65 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 4vw;
+}
+
+:root {
+
+    --color-primary: #ffb739;
+    --color-text: #333;
+    --speed: 1s;
+}
+
+.page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+img {
+    animation: pulse var(--speed) infinite alternate;
+}
+
+#previous {
+    transform: rotate(180deg);
+}
+
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.page2 {
+    display: none;
+}
