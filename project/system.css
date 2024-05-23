@@ -1,0 +1,14 @@
+:root {
+    /* COLORS */
+
+    --color-primary: #FFA800;
+    --color-secondary: #BB0000;
+    --color-terciary: #89BD54;
+    --color-text-dark: #444444;
+    --color-text-light: #EEEEEE;
+
+    /* PADDINGS & MARGINS */
+
+    --h-padding: 20px;
+    --v-padding: 10px;
+}

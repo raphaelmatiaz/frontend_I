@@ -1,0 +1,228 @@
+/*Imports*/
+@import url("designSystem.css");
+
+
+/*Universal Selector*/
+*, *::before, ::after {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+
+
+/*HTML Elements*/
+html,
+body {
+    display: flex;
+    width: 100vw;
+    height: 100dvh;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    /* border: 3px solid blue; */
+    min-width: 100%;
+    min-height: 100%;
+    position: static;
+
+    scroll-snap-align: start;
+}
+
+header {
+    display: flex;
+    flex: 1;
+    max-height: 80px;
+    background-color: var(--color-primary);
+
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--v-padding);
+}
+
+h1 {
+    font-size: 4rem;
+    color: #FFFFFF;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-height: 80px;;
+
+    background-color: var(--color-primary);
+    background-image: url(/assets/icons/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+}
+
+input::placeholder {
+    font-size: 2rem; /* Adjust as needed */
+    transform: translate(10px, 5px);
+  }
+
+button:hover {
+    cursor: pointer;
+}
+
+/*IDs*/
+
+#sections-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+
+}
+
+#tasks-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* max-width: 800px;
+    max-height: 1000px; */
+    background-color: rgb(255, 255, 255);
+}
+
+#items-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 1000px;
+    background-color: var(--color-text-dark);
+}
+
+#user-prompt-view {
+
+    height: 100dvh;
+    width: 100vw;
+
+    display: none; /* dar um SWITCH entre 'display: flex' e 'none' */
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    background-color: #4444449b;
+
+
+}
+
+#items-view > header  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#item-header-left-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-icon-right-content {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(/assets/icons/home.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+}
+
+#item-header-left-content > h2 {
+    color: var(--color-text-dark);
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: 5px;
+    margin: 0 0 0 1rem;
+
+
+}
+
+#lists-container {
+    position: relative;
+    display: block;
+    flex: 1;
+    overflow-y: scroll;
+    /* border: 3px solid rgb(255, 47, 0); */
+}
+
+#yes-no-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* border: 5px solid red; */
+
+}
+
+#yes-no-wrapper button#cancel {
+    height: 5rem;
+    width: 7rem;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    background-image: url(/assets/icons/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem;
+
+    border: none;
+}
+
+#yes-no-wrapper button#validate {
+    height: 5rem;
+    width: 7rem;
+
+    background-color: var(--color-terciary);
+
+    background-image: url(/assets/icons/check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+
+    border: none;
+}
+
+
+/*Classes*/
+
+.user-prompt-box {
+    height: 30%;
+    width: 28rem;
+    padding: var(--v-padding);
+    background-color: var(--color-primary);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.33);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+
+}
+
+.user-prompt-box h3.prompt-title {
+    color: var(--color-text-dark);
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.user-prompt-box input#task-input {
+    height: 5rem;
+    width: 100%;
+    margin-top: 1rem;
+}

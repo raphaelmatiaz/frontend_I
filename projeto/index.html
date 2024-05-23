@@ -5,11 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODOs</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script type="module" src="script.js"></script>
+    <script type="module" src="webComponents.js"></script>
 </head>
 
 <body>
+
+    <div id="sections-container">
+        <task-view></task-view>
+        <section id="tasks-view">
+            <header>
+                <h1>TODOs</h1>
+            </header>
+            <div id="lists-container">
+                <ul id="tasks">
+            </div>
+            <footer></footer>
+        </section>
+
+        <section id="items-view">
+            <header>
+                <div id="item-header-left-content">
+                    <h1>TODOs</h1>
+                    <h2>Task name</h2>
+                </div>
+                <div id="home-icon-right-content"></div>
+            </header>
+            <div id="lists-container">
+                <ul id="tasks"></ul>
+                <ul id="items"></ul>
+            </div>
+            <footer></footer>
+        </section>
+
+        <div id="user-prompt-view">
+            <div class="user-prompt-box">
+                <div id="title-input-wrapper">
+                    <h3 class="prompt-title">Add Task</h3>
+                    <input id="task-input" type="text" placeholder="Task name">
+                </div>
+                <div id="yes-no-wrapper">
+                    <button id="cancel"></button>
+                    <button id="validate"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <todo-task></todo-task> -->
 
 </body>
 
