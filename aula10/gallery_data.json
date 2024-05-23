@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Mountain Landscape",
+    "description": "A majestic mountain range bathed in the golden light of sunset.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2018/10/07/00/46/surfer-3729052_640.jpg"
+  },
+  {
+    "title": "Crystal Clear Lake",
+    "description": "A serene lake reflecting the clear blue sky and fluffy white clouds.",
+    "imageUrl": "https://images.unsplash.com/photo-1530870110042-98b2cb110834?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN1cmZlcnxlbnwwfHwwfHx8MA=="
+  },
+  {
+    "title": "Vibrant Cityscape",
+    "description": "A bustling cityscape with towering skyscrapers and colorful lights.",
+    "imageUrl": "https://st2.depositphotos.com/2961725/10134/i/450/depositphotos_101343252-stock-photo-surfer-at-sunset-tme.jpg"
+  },
+  {
+    "title": "Cozy Cabin",
+    "description": "A charming cabin nestled amongst the trees, perfect for a winter getaway.",
+    "imageUrl": "https://images.unsplash.com/photo-1455264745730-cb3b76250ae8?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3VyZmluZ3xlbnwwfHwwfHx8MA=="
+  },
+  {
+    "title": "Tropical Beach",
+    "description": "A pristine beach with white sand, turquoise water, and swaying palm trees.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/11/19/10/30/beach-1838501_640.jpg"
+  },
+  {
+    "title": "Starry Night Sky",
+    "description": "A breathtaking night sky filled with millions of twinkling stars.",
+    "imageUrl": "https://images.unsplash.com/photo-1571690584414-fa2a1127a2e1?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHN1cmZ8ZW58MHx8MHx8fDA="
+  },
+  {
+    "title": "Ancient Ruins",
+    "description": "Mysterious ruins of an ancient civilization, shrouded in history and mystery.",
+    "imageUrl": "https://media.istockphoto.com/id/1202876385/photo/portrait-of-an-adaptive-surfer.jpg?s=612x612&w=0&k=20&c=-lLvcXtKcdk2hgMryiqnJ0oWtPqGxSgjmd5dai2I8no="
+  }
+]

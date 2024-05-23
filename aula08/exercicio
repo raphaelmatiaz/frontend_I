@@ -1,0 +1,4 @@
+1. Criar uma função "createElement(elementType, content)" no nosso component (WordCounter);
+2. Esta função deverá criar um elemento do tipo que indicamos no elementType.
+3. o content irá ser o conteudo do Elemento defenido no elementType.
+4. incluir o novo elemento dentro no nosso componente.
