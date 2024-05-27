@@ -410,3 +410,121 @@ class CheckItem extends Item {
     }
 }
 customElements.define("check-item", CheckItem);
+
+
+const TodoModalTemplate = document.createElement('template');
+TodoModalTemplate.innerHTML = `
+
+<style>
+#view {
+    width: 100%;
+    height: 100%;
+    background-color:#44444450;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    inset: 0;
+    z-index: 500;
+
+    
+
+
+}
+
+#add-item-wrapper {
+    background-color: var(--color-primary);
+    width: 75vw;
+    height: fit-content;
+    padding: var(--v-padding);
+
+    box-shadow: 0px 5px 5px rgba(95, 95, 95, 0.301);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+#title {
+
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+#title-input {
+    margin-bottom: 1rem;
+}
+
+#user-input {
+    width: 100%;
+    height: 6vh;
+    padding: var(--v-padding);
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+svg {
+    width: 3vh; 
+}
+
+button {
+    padding: var(--v-padding);
+    width: 5rem;
+    height: 100%;
+    background-color: var(--color-primary);
+    border: none;
+
+}
+
+#validate {
+    background-color: var(--color-terciary);
+}
+</style>
+
+<div id="view">
+            <div id="add-item-wrapper">
+                <div id="title-input">
+                    <p id="title">Test</p>
+                    <input id="user-input" type="text" placeholder="Item name">
+                </div>
+                <div id="buttons">
+                    <button id="cancel">
+                        <svg id="cross-svg" width="100%" height="100%"  viewBox="0 0 24.342 24.342" fill= "var(--color-text-dark)"><path d="m12.171 8.4754-8.4754-8.4754-3.6954 3.6954 8.4754 8.4754-8.4754 8.4754 3.6954 3.6954 8.4754-8.4754 8.4754 8.4754 3.6954-3.6954-8.4754-8.4754 8.4754-8.4754-3.6954-3.6954z"/></svg>
+
+                    </button>
+
+                    <button id="validate">
+                        <svg width="100%" height="100%"  viewBox="0 0 24.342 24.342" fill= "var(--color-text-light)"><path d="m20.497 2.6458 3.8447 3.865-15.105 15.185-9.2366-9.2856 3.8447-3.865 5.3919 5.4205z"/></svg>
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+`
+
+class TodoModal extends HTMLElement {
+    shadowRoot;
+    constructor() {
+        super();
+
+        this.shadowRoot = this.attachShadow({mode: 'closed'})
+        this.shadowRoot.append(TodoModalTemplate.content.cloneNode(true));
+
+
+    }
+
+
+
+}
+customElements.define('todo-modal', TodoModal)
