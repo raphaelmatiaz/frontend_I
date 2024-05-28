@@ -412,119 +412,180 @@ class CheckItem extends Item {
 customElements.define("check-item", CheckItem);
 
 
-const TodoModalTemplate = document.createElement('template');
-TodoModalTemplate.innerHTML = `
-
+/**TODO MODAL */
+const todoModalTemplate = document.createElement("template");
+todoModalTemplate.innerHTML = `
 <style>
-#view {
-    width: 100%;
-    height: 100%;
-    background-color:#44444450;
+    @import url("system.css");
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    :host, #overlay {
+        position: absolute;
+        inset: 0;
+    }
 
-    position: absolute;
-    inset: 0;
-    z-index: 500;
+    :host {
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
 
+    #overlay {
+        background-color: var(--color-text-dark);
+        mix-blend-mode: multiply;
+        backdrop-filter: blur(3px);
+        
+        transition: opacity var(--speed) ease-in-out;
+    }
+
+    #dialog {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--color-primary);
+        padding: var(--v-padding) var(--h-padding);
+        gap: var(--gap);
+        filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
+        transition: transform var(--speed) ease-in-out, opacity var(--speed) ease;
+        transform: translateY(50px);
+        animation: todoModalEaseIn 0.3s ease-in forwards;
+        
+    }
+
+    h2, input {
+        margin: 0;
+        color: var(--color-text-dark);
+    }
+    h2 {
+        font-size: 42px;
+        font-weight: 500;
+    }
+
+    input {
+        flex: 1;
+        border: 1px solid var(--color-text-dark);
+        padding: 15px 10px;
+        font-size: 18px;
+    }
+    input:focus{
+        outline: none;
+    }
+
+    #actions-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--gap);
+        flex: 1;
+        margin-top: 20px;
+    }
+
+    button {
+        border: none;
+        flex: 1;
+        background-color: transparent;
+        height: 48px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    button:active svg {
+        transform: scale(0.9);
+    }
+    #confirm {
+        background-color: var(--color-terciary);
+    }
+
+    @keyframes todoModalEaseIn {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+        }
     
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-
-}
-
-#add-item-wrapper {
-    background-color: var(--color-primary);
-    width: 75vw;
-    height: fit-content;
-    padding: var(--v-padding);
-
-    box-shadow: 0px 5px 5px rgba(95, 95, 95, 0.301);
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-}
-
-#title {
-
-    font-size: 3rem;
-    font-weight: 500;
-    color: var(--color-text-dark);
-}
-
-#title-input {
-    margin-bottom: 1rem;
-}
-
-#user-input {
-    width: 100%;
-    height: 6vh;
-    padding: var(--v-padding);
-}
-
-#buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-svg {
-    width: 3vh; 
-}
-
-button {
-    padding: var(--v-padding);
-    width: 5rem;
-    height: 100%;
-    background-color: var(--color-primary);
-    border: none;
-
-}
-
-#validate {
-    background-color: var(--color-terciary);
-}
 </style>
 
-<div id="view">
-            <div id="add-item-wrapper">
-                <div id="title-input">
-                    <p id="title">Test</p>
-                    <input id="user-input" type="text" placeholder="Item name">
-                </div>
-                <div id="buttons">
-                    <button id="cancel">
-                        <svg id="cross-svg" width="100%" height="100%"  viewBox="0 0 24.342 24.342" fill= "var(--color-text-dark)"><path d="m12.171 8.4754-8.4754-8.4754-3.6954 3.6954 8.4754 8.4754-8.4754 8.4754 3.6954 3.6954 8.4754-8.4754 8.4754 8.4754 3.6954-3.6954-8.4754-8.4754 8.4754-8.4754-3.6954-3.6954z"/></svg>
+<div id="overlay"></div>
 
-                    </button>
-
-                    <button id="validate">
-                        <svg width="100%" height="100%"  viewBox="0 0 24.342 24.342" fill= "var(--color-text-light)"><path d="m20.497 2.6458 3.8447 3.865-15.105 15.185-9.2366-9.2856 3.8447-3.865 5.3919 5.4205z"/></svg>
-                    </button>
-                    
-                </div>
-            </div>
-        </div>
-
-
-
-`
+<div id="dialog">
+    <h2>Modal Title</h2>
+    <input type="text">
+    <div id="actions-container">
+        <button id="cancel">
+            <svg width="100%" height="100%" viewBox="0 0 24.342 24.342" fill="var(--color-text-dark)">
+                <path d="m12.171 8.4754-8.4754-8.4754-3.6954 3.6954 8.4754 8.4754-8.4754 8.4754 3.6954 3.6954 8.4754-8.4754 8.4754 8.4754 3.6954-3.6954-8.4754-8.4754 8.4754-8.4754-3.6954-3.6954z"/>
+            </svg>
+        </button>
+        <button id="confirm">
+            <svg width="100%" height="100%" viewBox="0 0 24.342 24.342" fill="var(--color-text-light)">
+                <path d="m20.497 2.6458 3.8447 3.865-15.105 15.185-9.2366-9.2856 3.8447-3.865 5.3919 5.4205z"/>
+            </svg>
+        </button>
+    </div>
+</div>  
+`;
 
 class TodoModal extends HTMLElement {
     shadowRoot;
     constructor() {
         super();
 
-        this.shadowRoot = this.attachShadow({mode: 'closed'})
-        this.shadowRoot.append(TodoModalTemplate.content.cloneNode(true));
+        this.shadowRoot = this.attachShadow({mode: "closed"});
+        this.shadowRoot.append(todoModalTemplate.content.cloneNode(true));
 
+        this.shadowRoot.querySelector("#overlay").onclick = () => {
+            this.hide();
+        }
+        this.shadowRoot.querySelector("#cancel").onclick = () => {
+            this.hide();
+        }
 
+        
+
+        const input = this.shadowRoot.querySelector("input");
+        this.shadowRoot.querySelector("#confirm").onclick = () => {
+            
+            sendConfirmData();
+        }
+
+        input.addEventListener('keydown', (event) => {
+
+            if(event.key === "Enter") {
+                sendConfirmData();
+            }
+        })
+
+        const sendConfirmData = () => {
+            if(input.value.trim() === "") return;
+            this.dispatchEvent(new CustomEvent("confirm", {
+                detail: {
+                    value: input.value
+                }
+            }));
+            this.hide();
+        }
     }
 
+    show(state) {
 
+        let title;
+        if(state === "tasks") {
+            title = "Add Task";
+        } else {
+            title = "Add Item";
+        }
+        this.shadowRoot.querySelector("h2").innerText = title;
+        this.style.display = "flex";
+        
+    }
 
+    hide() {
+        this.shadowRoot.querySelector("input").value = "";
+        this.style.display = "none";
+    }
 }
-customElements.define('todo-modal', TodoModal)
+customElements.define("todo-modal", TodoModal);

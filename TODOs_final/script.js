@@ -51,7 +51,7 @@ window.onload = async () => {
     const buildTasksList = (tasks) => {
         const ul = document.querySelector("#tasks");
         ul.innerHTML = "";
-
+        console.log(tasks.length)
         if(tasks.length === 0) {
             ul.innerHTML = "<li class='empty'>No tasks yet</li>";
             return;
@@ -105,7 +105,7 @@ window.onload = async () => {
         });
     }
     buildTasksList(model.getTasks());
-
+    console.log("asdasd")
 
     document.body.style.opacity = 1;
 }
